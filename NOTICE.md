@@ -72,6 +72,8 @@ unchanged.
 
 ## Cross-platform live bridge, security hardening, layers and animation (2026)
 
+Contributed by **radhikrammohan** (<https://github.com/radhikrammohan>), with AI assistance from Claude Code.
+
 This contribution builds on the project above and draws ideas from two other MIT-licensed
 projects. In each case the code was written for this codebase; nothing was copied verbatim, and
 where a design is borrowed it is named here.
