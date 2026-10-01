@@ -174,7 +174,7 @@ def _open_windows(bus: Any) -> list[int]:
     """
     windows = bus.list_windows()
     if windows:
-        return windows
+        return list(windows)
     lister = getattr(bus, "list_documents", None)
     return list(lister()) if lister else []
 

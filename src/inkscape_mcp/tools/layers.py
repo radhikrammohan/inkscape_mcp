@@ -54,7 +54,7 @@ class _LayerError(Exception):
 
 
 def _is_layer(el: etree._Element) -> bool:
-    return el.tag == _G and el.get(_GROUPMODE) == "layer"
+    return bool(el.tag == _G and el.get(_GROUPMODE) == "layer")
 
 
 def _layers(root: etree._Element) -> list[etree._Element]:
@@ -84,7 +84,7 @@ def _visible(el: etree._Element) -> bool:
 
 
 def _locked(el: etree._Element) -> bool:
-    return el.get(_INSENSITIVE) == "true"
+    return bool(el.get(_INSENSITIVE) == "true")
 
 
 def _depth(el: etree._Element) -> int:
@@ -253,7 +253,7 @@ async def inkscape_layers(
                 changed, message = {"id": layer_id, "position": placed}, f"moved {layer_id!r} to position {placed}"
             else:  # delete
                 removed = sum(1 for _ in layer.iter() if isinstance(_.tag, str))
-                layer.getparent().remove(layer)  # type: ignore[union-attr]
+                layer.getparent().remove(layer)
                 changed = {"id": layer_id, "elements_removed": removed}
                 message = f"deleted layer {layer_id!r} ({removed} element(s))"
 

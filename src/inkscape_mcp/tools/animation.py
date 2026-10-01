@@ -135,7 +135,7 @@ def _find(root: etree._Element, target_id: str) -> etree._Element:
 
 
 def _local(el: etree._Element) -> str:
-    return etree.QName(el).localname
+    return str(etree.QName(el).localname)
 
 
 def _f(el: etree._Element, attr: str, default: float = 0.0) -> float:

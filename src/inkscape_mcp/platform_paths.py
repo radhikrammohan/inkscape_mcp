@@ -71,6 +71,4 @@ def system_extension_dirs(
             Path("/snap/inkscape/current/share/inkscape/extensions"),
         ]
 
-    seen: set[Path] = set()
-    unique = [d for d in dirs if not (d in seen or seen.add(d))]
-    return tuple(unique)
+    return tuple(dict.fromkeys(dirs))  # de-duplicate, keeping order

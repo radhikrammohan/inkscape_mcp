@@ -305,7 +305,7 @@ def atomic_output(final: str | os.PathLike[str]) -> Iterator[Path]:
 
 def _denied_result(tool: str, args: dict[str, Any], message: str) -> Any:
     """A tool-shaped failure, so clients parse it exactly like any other tool error."""
-    from fastmcp.tools.tool import ToolResult
+    from fastmcp.tools import ToolResult
 
     payload = {
         "success": False,
